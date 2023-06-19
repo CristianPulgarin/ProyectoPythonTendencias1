@@ -1,0 +1,223 @@
+<html>
+<head>
+<title>ProyectoPython.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ProyectoPython.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">sys</span>
+<span class="s0">import </span><span class="s1">tkinter </span><span class="s0">as </span><span class="s1">tk</span>
+<span class="s0">from </span><span class="s1">tkinter </span><span class="s0">import </span><span class="s1">ttk</span><span class="s0">,</span><span class="s1">messagebox</span><span class="s0">, </span><span class="s1">Menu</span>
+
+
+<span class="s1">ventana=tk.Tk();</span>
+<span class="s1">ventana.geometry(</span><span class="s2">'600x300'</span><span class="s1">)</span>
+<span class="s1">ventana.title(</span><span class="s2">'PROYECTO'</span><span class="s1">)</span>
+
+<span class="s0">def </span><span class="s1">salir():</span>
+    <span class="s1">ventana.quit()</span>
+    <span class="s1">ventana.destroy()</span>
+    <span class="s1">sys.exit()</span>
+
+<span class="s0">def </span><span class="s1">crear():</span>
+
+    <span class="s1">ventana_nueva1 = tk.Toplevel()</span>
+    <span class="s1">ventana_nueva1.title(</span><span class="s2">&quot;Ventana secundaria&quot;</span><span class="s1">)</span>
+    <span class="s1">ventana_nueva1.geometry(</span><span class="s2">'300x200'</span><span class="s1">)</span>
+
+
+<span class="s0">def </span><span class="s1">crear_menu():</span>
+    <span class="s1">menu_principal=Menu(ventana)</span>
+    <span class="s1">submenu_archivo= Menu(menu_principal</span><span class="s0">,</span><span class="s1">tearoff=</span><span class="s3">0</span><span class="s1">)</span>
+
+    <span class="s1">menu_principal.add_cascade(menu=submenu_archivo</span><span class="s0">,</span><span class="s1">label=</span><span class="s2">'Archivo'</span><span class="s1">)</span>
+    <span class="s1">ventana.config(menu=menu_principal)</span>
+    <span class="s1">menu_principal.add_cascade( label=</span><span class="s2">'Ayuda'</span><span class="s0">, </span><span class="s1">command=crear)</span>
+
+    <span class="s1">submenu_archivo.add_command(label=</span><span class="s2">'Salir'</span><span class="s0">,</span><span class="s1">command=salir)</span>
+
+<span class="s1">crear_menu()</span>
+
+
+
+
+
+<span class="s2">&quot;&quot;&quot;ETIQUETAS&quot;&quot;&quot;</span>
+
+
+<span class="s1">etiqueta1=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;CONVERTIDOR DE MONEDAS&quot;</span><span class="s0">,</span><span class="s1">font=</span><span class="s2">'arial'</span><span class="s1">)</span>
+<span class="s1">etiqueta1.grid(row=</span><span class="s3">0</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+<span class="s1">etiqueta5=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+<span class="s1">etiqueta5.grid(row=</span><span class="s3">1</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+<span class="s1">etiqueta2=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;INGRESE EL VALOR EN PESOS&quot;</span><span class="s1">)</span>
+<span class="s1">etiqueta2.grid(row=</span><span class="s3">2</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+
+
+<span class="s2">&quot;&quot;&quot;ENTRADA DEL VALOR&quot;&quot;&quot;</span>
+<span class="s1">entrada1= ttk.Entry(ventana</span><span class="s0">,</span><span class="s1">widt=</span><span class="s3">15</span><span class="s1">)</span>
+<span class="s1">entrada1.grid(row=</span><span class="s3">3</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+
+
+<span class="s0">def </span><span class="s1">Convertir_dolares():</span>
+    <span class="s1">print(</span><span class="s2">&quot;Se ejecutó el boton&quot;</span><span class="s1">)</span>
+    <span class="s1">var = entrada1.get()</span>
+
+    <span class="s0">if </span><span class="s1">var == </span><span class="s2">' ' </span><span class="s0">or </span><span class="s1">var == </span><span class="s2">''</span><span class="s1">:</span>
+        <span class="s1">mensajeerror = </span><span class="s2">'Campo vacio,'</span>
+        <span class="s1">messagebox.showerror(</span><span class="s2">'mensaje de error '</span><span class="s0">, </span><span class="s1">mensajeerror + </span><span class="s2">' error'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">v=float(var)</span>
+        <span class="s1">dolar=v*</span><span class="s3">4539</span>
+        <span class="s1">mensaje1 = str(var)</span>
+        <span class="s1">m=str(dolar)</span>
+        <span class="s1">messagebox.showinfo(</span><span class="s2">'' </span><span class="s0">,</span><span class="s1">mensaje1+ </span><span class="s2">' pesos colombianos se convirtió a '</span><span class="s1">+m)</span>
+        <span class="s1">boton1.config(text=</span><span class="s2">'Boton dolar presionado'</span><span class="s1">)</span>
+
+        <span class="s1">d=str(dolar)</span>
+        <span class="s1">v=str(var)</span>
+        <span class="s1">archivo=open(</span><span class="s2">'Conversion-dolar.txt'</span><span class="s0">,</span><span class="s2">'w'</span><span class="s1">)</span>
+        <span class="s1">archivo.write(</span><span class="s2">'La conversion es: '</span><span class="s1">+d+</span><span class="s2">'</span><span class="s0">\n</span><span class="s2">'</span><span class="s1">+</span>
+
+            <span class="s2">'El valor ingresado es: '</span><span class="s1">+v+</span><span class="s2">'</span><span class="s0">\n</span><span class="s2">'</span><span class="s1">+</span>
+        <span class="s2">'El valor convertido es: '</span><span class="s1">+d+</span><span class="s2">'</span><span class="s0">\n</span><span class="s2">'</span><span class="s1">+</span>
+        <span class="s2">'Gracias por usar el programa'</span><span class="s1">)</span>
+
+
+<span class="s0">def </span><span class="s1">Convertir_euros():</span>
+    <span class="s1">print(</span><span class="s2">&quot;Se ejecutó el boton&quot;</span><span class="s1">)</span>
+    <span class="s1">var = entrada1.get()</span>
+
+    <span class="s0">if </span><span class="s1">var==</span><span class="s2">' ' </span><span class="s0">or </span><span class="s1">var==</span><span class="s2">''</span><span class="s1">:</span>
+        <span class="s1">mensajeerror = </span><span class="s2">'Campo vacio,'</span>
+        <span class="s1">messagebox.showerror(</span><span class="s2">'mensaje de error '</span><span class="s0">, </span><span class="s1">mensajeerror + </span><span class="s2">' error'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">v=float(var)</span>
+        <span class="s1">euro=v*</span><span class="s3">4964</span>
+        <span class="s1">mensaje1 = str(var)</span>
+        <span class="s1">m = str(euro)</span>
+        <span class="s1">messagebox.showinfo(</span><span class="s2">''</span><span class="s0">, </span><span class="s1">mensaje1 + </span><span class="s2">' pesos colombianos se convirtió a ' </span><span class="s1">+ m)</span>
+
+        <span class="s1">boton2.config(text=</span><span class="s2">'Boton euro presionado'</span><span class="s1">)</span>
+
+
+        <span class="s1">e = str(euro)</span>
+        <span class="s1">v = str(var)</span>
+        <span class="s1">archivo = open(</span><span class="s2">'Conversion-euro.txt'</span><span class="s0">, </span><span class="s2">'w'</span><span class="s1">)</span>
+        <span class="s1">archivo.write(</span><span class="s2">'La conversion es: ' </span><span class="s1">+ e + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">' </span><span class="s1">+</span>
+
+                  <span class="s2">'El valor ingresado es: ' </span><span class="s1">+ v + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">' </span><span class="s1">+</span>
+                  <span class="s2">'El valor convertido es: ' </span><span class="s1">+ e + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">' </span><span class="s1">+</span>
+                  <span class="s2">'Gracias por usar el programa'</span><span class="s1">)</span>
+
+
+<span class="s0">def </span><span class="s1">Convertir_libras():</span>
+    <span class="s1">print(</span><span class="s2">&quot;Se ejecutó el boton&quot;</span><span class="s1">)</span>
+    <span class="s1">var = entrada1.get()</span>
+    <span class="s0">if </span><span class="s1">var==</span><span class="s2">' ' </span><span class="s0">or </span><span class="s1">var==</span><span class="s2">''</span><span class="s1">:</span>
+        <span class="s1">mensajeerror = </span><span class="s2">'Campo vacio,'</span>
+        <span class="s1">messagebox.showerror(</span><span class="s2">'mensaje de error '</span><span class="s0">, </span><span class="s1">mensajeerror + </span><span class="s2">' error'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+        <span class="s1">v=float(var)</span>
+        <span class="s1">libra=v*</span><span class="s3">5634</span>
+
+        <span class="s1">mensaje1 = str(var)</span>
+        <span class="s1">m = str(libra)</span>
+        <span class="s1">messagebox.showinfo(</span><span class="s2">''</span><span class="s0">, </span><span class="s1">mensaje1 + </span><span class="s2">' pesos colombianos se convirtió a ' </span><span class="s1">+ m)</span>
+
+        <span class="s1">boton3.config(text=</span><span class="s2">'Boton libra presionado'</span><span class="s1">)</span>
+
+        <span class="s1">l = str(libra)</span>
+        <span class="s1">v = str(var)</span>
+        <span class="s1">archivo = open(</span><span class="s2">'Conversion-libraEsterlina.txt'</span><span class="s0">, </span><span class="s2">'w'</span><span class="s1">)</span>
+        <span class="s1">archivo.write(</span><span class="s2">'La conversion es: ' </span><span class="s1">+ l + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">' </span><span class="s1">+</span>
+
+                  <span class="s2">'El valor ingresado es: ' </span><span class="s1">+ v + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">' </span><span class="s1">+</span>
+                  <span class="s2">'El valor convertido es: ' </span><span class="s1">+ l + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">' </span><span class="s1">+</span>
+                  <span class="s2">'Gracias por usar el programa'</span><span class="s1">)</span>
+
+
+
+
+<span class="s0">def </span><span class="s1">llenarVector():</span>
+    <span class="s1">moneda=[</span><span class="s2">'Dolar'</span><span class="s0">,</span><span class="s2">'Euro'</span><span class="s0">,</span><span class="s2">'Libra'</span><span class="s1">]</span>
+
+    <span class="s1">var = entrada2.get()</span>
+    <span class="s0">if </span><span class="s1">var==</span><span class="s2">' ' </span><span class="s0">or </span><span class="s1">var==</span><span class="s2">''</span><span class="s1">:</span>
+        <span class="s1">mensajeerror = </span><span class="s2">'Campo vacio,'</span>
+        <span class="s1">messagebox.showerror(</span><span class="s2">'mensaje de error '</span><span class="s0">, </span><span class="s1">mensajeerror + </span><span class="s2">' error'</span><span class="s1">)</span>
+    <span class="s0">else</span><span class="s1">:</span>
+
+        <span class="s1">boton4.config(moneda.append(var))</span>
+        <span class="s0">for </span><span class="s1">moneda </span><span class="s0">in </span><span class="s1">moneda:</span>
+            <span class="s1">print(moneda)</span>
+
+        <span class="s1">entrada2.delete(</span><span class="s3">0</span><span class="s0">,</span><span class="s1">tk.END)</span>
+
+        <span class="s1">archivo = open(</span><span class="s2">'Futuras mondeas.txt'</span><span class="s0">, </span><span class="s2">'w'</span><span class="s1">)</span>
+        <span class="s1">archivo.write(</span><span class="s2">'Las nuevas monedas que se van a mirar son : ' </span><span class="s1">+ moneda + </span><span class="s2">'</span><span class="s0">\n</span><span class="s2">'</span>
+        <span class="s2">'Gracias por mejorar nuestro programa'</span><span class="s1">)</span>
+
+
+
+
+
+
+
+<span class="s1">etiqueta1=tk.Label(ventana</span><span class="s0">,</span><span class="s1">widt=</span><span class="s3">8</span><span class="s1">)</span>
+<span class="s1">etiqueta1.grid(row=</span><span class="s3">5</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">1</span><span class="s1">)</span>
+
+
+<span class="s1">etiqueta1=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+<span class="s1">etiqueta1.grid(row=</span><span class="s3">5</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+<span class="s2">&quot;&quot;&quot;BOTONES DE MONEDAS&quot;&quot;&quot;</span>
+<span class="s1">boton1= ttk.Button(ventana</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'DOLARES'</span><span class="s0">, </span><span class="s1">command=Convertir_dolares)</span>
+<span class="s1">boton1.grid(row=</span><span class="s3">6</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">2</span><span class="s1">)</span>
+
+
+<span class="s1">boton2 = ttk.Button(ventana</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'EUROS'</span><span class="s0">, </span><span class="s1">command=Convertir_euros)</span>
+<span class="s1">boton2.grid(row=</span><span class="s3">6</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+<span class="s1">boton3 = ttk.Button(ventana</span><span class="s0">, </span><span class="s1">text=</span><span class="s2">'LIBRA ESTERLINA'</span><span class="s0">, </span><span class="s1">command=Convertir_libras)</span>
+<span class="s1">boton3.grid(row=</span><span class="s3">6</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">4</span><span class="s1">)</span>
+
+<span class="s1">boton4= ttk.Button(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">'AGREGAR'</span><span class="s0">,</span><span class="s1">command=llenarVector)</span>
+<span class="s1">boton4.grid(row=</span><span class="s3">12</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+
+
+
+<span class="s1">etiqueta5=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+<span class="s1">etiqueta5.grid(row=</span><span class="s3">7</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+<span class="s1">etiqueta5=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;INGRESE NUEVA MONEDA&quot;</span><span class="s1">)</span>
+<span class="s1">etiqueta5.grid(row=</span><span class="s3">8</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+<span class="s2">&quot;&quot;&quot;ENTRADA DEL VALOR&quot;&quot;&quot;</span>
+
+<span class="s1">etiqueta5=tk.Label(ventana</span><span class="s0">,</span><span class="s1">text=</span><span class="s2">&quot;&quot;</span><span class="s1">)</span>
+<span class="s1">etiqueta5.grid(row=</span><span class="s3">11</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+
+<span class="s1">entrada2= ttk.Entry(ventana</span><span class="s0">,</span><span class="s1">widt=</span><span class="s3">10</span><span class="s1">)</span>
+<span class="s1">entrada2.grid(row=</span><span class="s3">10</span><span class="s0">,</span><span class="s1">column=</span><span class="s3">3</span><span class="s1">)</span>
+
+
+
+<span class="s1">ventana.mainloop()</span></pre>
+</body>
+</html>
